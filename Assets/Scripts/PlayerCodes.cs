@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class PlayerCodes : MonoBehaviour
 {
@@ -7,11 +8,13 @@ public class PlayerCodes : MonoBehaviour
     [SerializeField] private float velocidade = 5f;
     [SerializeField] private float forcaPulo = 5f;
     private bool noChao = true;
-    private bool vida;
+    [SerializeField] private bool vida;
     [SerializeField] private GameObject canvasMorte;
+    private Animator anim;
 
     void Start()
     {
+        anim = GetComponent<Animator>();
         vida = true;
         rb = GetComponent<Rigidbody2D>();
         canvasMorte.SetActive(false);
@@ -19,6 +22,7 @@ public class PlayerCodes : MonoBehaviour
 
     void Update()
     {
+        anim.SetBool("Run", moveInput != 0f);
         moveInput = Input.GetAxis("Horizontal");
 
         if (moveInput != 0f)
@@ -28,6 +32,8 @@ public class PlayerCodes : MonoBehaviour
 
         if(noChao && Input.GetKeyDown(KeyCode.Space))
         {
+            anim.SetTrigger("Pulo");
+            anim.SetBool("noChao", false);
             rb.AddForce(Vector2.up * forcaPulo, ForceMode2D.Impulse);
             noChao = false;
         }
@@ -43,6 +49,7 @@ public class PlayerCodes : MonoBehaviour
         if(collision.gameObject.CompareTag("Chao"))
         {
             noChao = true;
+            anim.SetBool("noChao", true);
         }
     }
 
@@ -51,6 +58,7 @@ public class PlayerCodes : MonoBehaviour
         if(collision.gameObject.CompareTag("Chao"))
         {
             noChao = false;
+            anim.SetBool("noChao", false);
         }
     }
 
