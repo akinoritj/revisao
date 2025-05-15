@@ -8,14 +8,13 @@ public class PlayerCodes : MonoBehaviour
     [SerializeField] private float velocidade = 5f;
     [SerializeField] private float forcaPulo = 5f;
     private bool noChao = true;
-    [SerializeField] private bool vida;
+    [SerializeField] private int vida = 5;
     [SerializeField] private GameObject canvasMorte;
     private Animator anim;
 
     void Start()
     {
         anim = GetComponent<Animator>();
-        vida = true;
         rb = GetComponent<Rigidbody2D>();
         canvasMorte.SetActive(false);
     }
@@ -66,9 +65,18 @@ public class PlayerCodes : MonoBehaviour
     {
         if(collision.CompareTag("Morte"))
         {
-            vida = false;
-            Time.timeScale = 0f;
+            ReceberDano(vida);
+        }
+    }
+
+    public void ReceberDano(int dano)
+    {
+        vida -= dano;
+        if(vida <= 0)
+        {
+            vida = 0;
             canvasMorte.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
 }
