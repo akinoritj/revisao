@@ -1,9 +1,12 @@
 using System;
 using UnityEngine;
+using TMPro;
 
 public class Inimigos : MonoBehaviour
 {
     [SerializeField] private int dano = 1;
+    [SerializeField] private TextMeshPro vidaInimigo;
+    [SerializeField] private int vida;
     [SerializeField] private float distanciaDeAtaque;
     [SerializeField] private float velocidade;
     [SerializeField] private float distanciaPersegue;
@@ -16,6 +19,7 @@ public class Inimigos : MonoBehaviour
     private Transform player;
     void Start()
     {
+        vida = 10;
         forcaPulo = 7f;
         noChao = true;
         velocidade = 2f;
@@ -24,6 +28,11 @@ public class Inimigos : MonoBehaviour
         anim = GetComponent<Animator>();
         player = FindFirstObjectByType<PlayerCodes>().transform;
         rb = GetComponent<Rigidbody2D>();
+
+        if(vidaInimigo != null)
+        {
+            vidaInimigo.text = vida.ToString();
+        }
     }
     void Update()
     {
@@ -74,6 +83,16 @@ public class Inimigos : MonoBehaviour
             {
                 player.ReceberDano(dano);
             }
+        }
+    }
+
+    public void ReceberDano(int dano)
+    {
+        vida -= dano;
+        if (vida <= 0)
+        {
+            //animação de morte
+            Destroy(gameObject);
         }
     }
 

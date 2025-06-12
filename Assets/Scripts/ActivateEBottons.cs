@@ -3,48 +3,48 @@ using UnityEngine;
 
 public class ActivateEBottons : MonoBehaviour
 {
-    [SerializeField] private GameObject canvaCreditos;
-    [SerializeField] private GameObject CanvasPlay;
-    [SerializeField] private GameObject CanvasPause;
+    [SerializeField] private GameObject creditosPainel;
+    [SerializeField] private GameObject playPainel;
+    [SerializeField] private GameObject pausePainel;
     void Start()
     {
-        if (CanvasPlay != null)
+        if (playPainel != null)
         {
-            CanvasPlay.SetActive(true);
+            playPainel.SetActive(true);
         }
 
-        if (canvaCreditos != null)
+        if (creditosPainel != null)
         {
-            canvaCreditos.SetActive(false);
+            creditosPainel.SetActive(false);
         }
 
-        if (CanvasPause != null)
+        if (pausePainel != null)
         {
-            CanvasPause.SetActive(false);
+            pausePainel.SetActive(false);
         }
     }
 
     public void AtivarCreditos()
     {
-        if (canvaCreditos != null)
+        if (creditosPainel != null)
         {
-            canvaCreditos.SetActive(true);
+            creditosPainel.SetActive(true);
         }
-        if (CanvasPlay != null)
+        if (playPainel != null)
         {
-            CanvasPlay.SetActive(false);
+            playPainel.SetActive(false);
         }
     }
 
     public void DesativarCreditos()
     {
-        if (canvaCreditos != null)
+        if (creditosPainel != null)
         {
-            canvaCreditos.SetActive(false);
+            creditosPainel.SetActive(false);
         }
-        if (CanvasPlay != null)
+        if (playPainel != null)
         {
-            CanvasPlay.SetActive(true);
+            playPainel.SetActive(true);
         }
     }
 
@@ -61,13 +61,13 @@ public class ActivateEBottons : MonoBehaviour
     public void Pause()
     {   
         Time.timeScale = 0f;
-        CanvasPause.SetActive(true);
+        pausePainel.SetActive(true);
     }
 
     public void Despause()
     {
         Time.timeScale = 1f;
-        CanvasPause.SetActive(false);
+        pausePainel.SetActive(false);
     }
     public void TentarNovamente()
     {
