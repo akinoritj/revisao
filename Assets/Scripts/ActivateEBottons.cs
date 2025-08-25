@@ -6,6 +6,8 @@ public class ActivateEBottons : MonoBehaviour
     [SerializeField] private GameObject creditosPainel;
     [SerializeField] private GameObject playPainel;
     [SerializeField] private GameObject pausePainel;
+    [SerializeField] private GameObject mortePainel; 
+    
     void Start()
     {
         if (playPainel != null)

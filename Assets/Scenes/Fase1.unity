@@ -2632,7 +2632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1097014803
 Transform:
   m_ObjectHideFlags: 0
@@ -33784,7 +33784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1853085403
 Transform:
   m_ObjectHideFlags: 0
@@ -33838,6 +33838,7 @@ MonoBehaviour:
   creditosPainel: {fileID: 0}
   playPainel: {fileID: 0}
   pausePainel: {fileID: 1853085402}
+  mortePainel: {fileID: 0}
 --- !u!114 &1853891107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33960,7 +33961,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creditosPainel: {fileID: 0}
   playPainel: {fileID: 0}
-  pausePainel: {fileID: 0}
+  pausePainel: {fileID: 1853085402}
+  mortePainel: {fileID: 1097014802}
 --- !u!4 &2018317092
 Transform:
   m_ObjectHideFlags: 0

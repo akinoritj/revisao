@@ -281,9 +281,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7b3586aeda7ab8468dd0f8bbb97faee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvaCreditos: {fileID: 1044423899}
-  CanvasPlay: {fileID: 753953447}
-  CanvasPause: {fileID: 0}
+  creditosPainel: {fileID: 1044423899}
+  playPainel: {fileID: 753953447}
+  pausePainel: {fileID: 0}
 --- !u!4 &22879682
 Transform:
   m_ObjectHideFlags: 0
